@@ -1,14 +1,16 @@
-# PROXMOX PROVIDER CONFIGURATION
-NC_REGION           = ""    # Set Proxmox VE region ID: 'mk', 'ur', 'tu'
-PM_API_TOKEN_ID     = ""    # Set Proxmox API token
-PM_API_TOKEN_SECRET = ""    # Set Proxmox API secret
+# REGION CONFIGURATION
+NC_REGION           = ""    # Set Proxmox VE region
+NC_RSC_POOL         = "" # Set Nekko Cloud region resource pool
+PM_API_TOKEN_ID     = "@pve!"
+PM_API_TOKEN_SECRET = ""
 PM_TLS_INSECURE     = "true"
 PM_DEBUG            = "true"
 PM_LOG_ENABLE       = "true"
 PM_LOG_LEVEL        = "debug"
 
 # VM CONFIGURATION
-vm_name     = "nc-vm"   # VM name
-username    = "user"   # VM user
-password    = "password"    # VM password
-public_key  = ""    # SSH key
+vm_name     = "nc-vm"
+username    = "user"
+password    = "password"
+public_key  = ""
+custom_path = "vendor=local:snippets/cloudinit-ci-vendor.yaml"

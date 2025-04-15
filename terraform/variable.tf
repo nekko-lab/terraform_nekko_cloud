@@ -66,28 +66,22 @@ variable "PM_LOG_FILE" {
 variable "NC_REGION" {
   description = "The Nekko Cloud region"
   type        = string
-  default     = ""  # Set Proxmox region: mk, ur, tu
+  default     = ""  # Set Proxmox region
 }
 
 
-variable "NC_REGION_DEV_IP" {
+variable "NC_REGION_IP" {
   description = "The Nekko Cloud region IPv6 address"
   type        = map(string)
   default     = {
-    "mk" = "fd12:e644:6d9d:0000::",
-    "ur" = "fd12:e644:6d9d:0100::",
-    "tu" = "fd12:e644:6d9d:0200::"
-  }
-}
-
-
-variable "NC_REGION_PROD_IP" {
-  description = "The Nekko Cloud region IPv6 address"
-  type        = map(string)
-  default     = {
-    "mk" = "fd12:e644:6d9d:0080::",
-    "ur" = "fd12:e644:6d9d:0180::",
-    "tu" = "fd12:e644:6d9d:0280::"
+    "mkdev"  = "fd12:e644:6d9d:0000::101",
+    "mkprob" = "fd12:e644:6d9d:0080::101",
+    "urdev"  = "fd12:e644:6d9d:0100::101",
+    "urprob" = "fd12:e644:6d9d:0180::101",
+    "tudev"  = "fd12:e644:6d9d:0200::101",
+    "tuprob" = "fd12:e644:6d9d:0280::101",
+    "temp-proxmox-dev1" = "10.1.128.103",
+    "temp-proxmox-dev2" = "10.0.128.103"
   }
 }
 
@@ -111,6 +105,7 @@ variable "vm_br" {
   description = "The bridge to assign to the VM"
   type        = map(string)
   default     = {
+    ""     = "vmbr0",
     "dev"  = "vmbr1128",
     "prod" = "vmbr1001"
   }
@@ -135,4 +130,10 @@ variable "public_key" {
   description = "The public key to be used for SSH"
   type        = string
   default     = ""
+}
+
+variable "custom_path" {
+  description = "The path of cicustom"
+  type = string
+  default = ""
 }
